@@ -1,0 +1,8 @@
+* compile seq:
+gfortran -c F_code.F90 -I /usr/local/lib && g++ -c driver.cpp -lstdc++ -ld
+gfortran -o run F_code.o driver.o -lstdc++
+./run
+* compile if using driver_mat_mpi:
+gfortran -c F_code.F90 -I /usr/local/lib && g++ -c driver.cpp -lstdc++ -ld
+mpif90 -o run F_code.o driver.o -lstdc++
+mpirun -n 2 ./run
